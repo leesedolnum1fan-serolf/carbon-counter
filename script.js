@@ -21,14 +21,32 @@ const values = {
     "treadrun": 47,
     "normrun": 0
 };
-//buttons that correspond with a stage
-const stages = {
-    "home": ["light", "window"],
-    "daykitchen": ["eggs", "pancakes", "bacon"],
-    "transportation": ["bike", "walk", "car", "bus"],
-    "home": ["television", "run", ""],
-    "workout":["normrun", "treadrun"],
-    "nightkitchen": ["salad", "steak", "pizza"]
+//buttons that correspond with a scene
+const scene = {
+    "darkroom": [["light",], ["window"]],
+    "daykitchen": [["eggs"], ["pancakes"], ["bacon"]],
+    "transportation": [["bike"], ["walk"], ["car"], ["bus"]],
+    "home": [["television"], ["run"], ["garden"]],
+    "workout":[["normrun"], ["treadrun"]],
+    "nightkitchen": [["salad"], ["steak"], ["pizza"]]
 };
 // total carbon tracker
 var total = 0;
+//game state
+var play = false;
+
+window.onload;
+const container = document.getElementById("container")
+function reset() {
+    play = false;
+};
+function start() {
+    if (play === false) {
+        play = true;
+        game();
+    };
+};
+
+function game() {
+    
+};
