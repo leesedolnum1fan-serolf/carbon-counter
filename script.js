@@ -22,7 +22,7 @@ const values = {
     "normrun": 0
 };
 //scenes in order
-const order = ["darkroom", "daykitchen", "transportation", "home", "nightkitchen"];
+const order = ["darkroom", "daykitchen", "transportation", "home", "laundry", "nightkitchen"];
 //buttons that correspond with a scene
 const scene = {
     "darkroom": [["light","6", "120"], ["window", "320", "51"]],
@@ -55,15 +55,15 @@ function start() {
     };
 };
 
-function img_transition(new_img) {
+async function img_transition(new_img) {
     const background = document.getElementById("background");
     let i = 1;
     for (i; i > 0; i-=0.1) {
-        delay(1000).then(() => {background.style.opacity = i;});
+        await delay(50).then(() => {background.style.opacity = i;});
     }
     background.src = "img/backgrounds/"+new_img+".png";
     for (i; i < 1; i+=0.1) {
-        delay(1000).then(() => {background.style.opacity = i;});    };
+        await delay(50).then(() => {background.style.opacity = i;});    };
 };
 
 function button_creation(buttons) {
@@ -91,8 +91,10 @@ function butten_detection() {
 };
 
 
-function game() {
+async function game() {
     for (const item of order) {
-        delay(1000).then(img_transition(item));
+        console.log(item);
+        await img_transition(item);
+        await button_creation(scene[item]);
     };
 };
