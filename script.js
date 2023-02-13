@@ -25,11 +25,12 @@ const values = {
 const order = ["darkroom", "daykitchen", "transportation", "home", "nightkitchen"];
 //buttons that correspond with a scene
 const scene = {
-    "darkroom": [["light",], ["window"]],
-    "daykitchen": [["eggs"], ["pancakes"], ["bacon"]],
-    "transportation": [["bike"], ["walk"], ["car"], ["bus"]],
-    "home": [["television"], ["run"], ["garden"]],
-    "workout":[["normrun", 100, 200], ["treadrun"]],
+    "darkroom": [["light","6", "120"], ["window", "320", "51"]],
+    "daykitchen": [["eggs", "320", "155"], ["pancakes", "210", "220"], ["bacon", "140", "150"]],
+    "transportation": [["bike", "140", "40"], ["walk", "320", "40"], ["car", "270", "180"], ["bus", "80", "150"]],
+    "home": [["television", "150", "160"], ["run", "310", "160"], ["garden", "230", "65"]],
+    "workout":[["normrun", "140", "80"], ["treadrun", "270", "80"]],
+    "laundry": [["hotwash"], ["coldwash"], ["machinedry"], ["airdry"]],
     "nightkitchen": [["salad"], ["steak"], ["pizza"]]
 };
 // total carbon tracker
@@ -66,15 +67,22 @@ function img_transition(new_img) {
 };
 
 function button_creation(buttons) {
-    for (const thing in buttons) {
-        console.log(buttons[thing])
+    for (const button of buttons) {
+        console.log(button[0])
+        const container = document.getElementById("container")
          var g = document.createElement("button");
-         var item = buttons[thing][0];
+         var item = button[0];
          g.id = item;
          g.className = "game-elements";
-         g.style.backgroundImage = "img/buttons/"+item+".png"
+         g.style.backgroundColor = "transparent";
+         g.style.borderColor = "transparent";
+         g.innerHTML = `<img src="img/buttons/${item}.png">`;
          g.style.position = "absolute";
+         g.style.left =  button[1]+"px";
+         g.style.top = button[2]+"px"
+         container.appendChild(g);
          console.log(g);
+         
     };
 };
 
