@@ -22,7 +22,7 @@ const values = {
     "normrun": 0
 };
 //scenes in order
-const order = ["darkroom", "daykitchen", "transportation", "home", "laundry", "nightkitchen"];
+const order = ["darkroom", "daykitchen", "transportation", "home", "laundry", "workout","nightkitchen"];
 //buttons that correspond with a scene
 const scene = {
     "darkroom": [["light","6", "120"], ["window", "320", "51"]],
@@ -30,8 +30,8 @@ const scene = {
     "transportation": [["bike", "140", "40"], ["walk", "320", "40"], ["car", "270", "180"], ["bus", "80", "150"]],
     "home": [["television", "150", "160"], ["run", "310", "160"], ["garden", "230", "65"]],
     "workout":[["normrun", "140", "80"], ["treadrun", "270", "80"]],
-    "laundry": [["hotwash"], ["coldwash"], ["machinedry"], ["airdry"]],
-    "nightkitchen": [["salad"], ["steak"], ["pizza"]]
+    "laundry": [["hotwash", "10", "70"], ["coldwash", "140", "70"], ["machinedry", "10", "180"], ["airdry", "140", "180"]],
+    "nightkitchen": [["salad", "110", "160"], ["steak", "330", "160"], ["pizza", "230", "230"]]
 };
 // total carbon tracker
 var total = 0;
@@ -81,13 +81,11 @@ function button_creation(buttons) {
          g.style.left =  button[1]+"px";
          g.style.top = button[2]+"px"
          container.appendChild(g);
-         console.log(g);
-         
     };
 };
 
-function butten_detection() {
-
+function butten_detection(id) {
+    console.log(id)
 };
 
 
