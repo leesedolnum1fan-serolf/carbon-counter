@@ -107,9 +107,11 @@ const carbon = {
     if (id === "hotwash" || id === "coldwash" || id === "machinedry" || id === "airdry") {
       button_check += 0.5
         if ( id === "hotwash" || id === "coldwash") {
-
+            document.getElementById("hotwash").remove()
+            document.getElementById("coldwash").remove()
         } else {
-
+            document.getElementById("airdry").remove()
+            document.getElementById("machinedry").remove()
         };
     } else if (id === "garden" || id === "television" || id === "light" || id === "window") {
       delete_buttons();
@@ -127,13 +129,13 @@ const carbon = {
         delete_buttons();
         button_check = 0;
       if (x > 5) {
-        await img_transition("end", 100)
-        g = document.createElement("p")
-        g.className = "game-elements"
+        img_transition("end", 100)
+        var g = document.createElement("div")
+        g.id = "total-carbon"; 
         g.style.position = "absolute";
         g.style.width = "50px";
         g.style.height = "50px";
-        g.innerHTML = `${total.toString()}g CO2`;
+        g.innerHTML = `<h1>${total.toString()}g CO2</h1>`;
         g.style.top = "180px";
         g.style.left = "240px";
         g.fontSize = "2em";
