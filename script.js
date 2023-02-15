@@ -31,7 +31,7 @@ const carbon = {
     "home": [["television", "150", "160"], ["run", "310", "160"], ["garden", "230", "65"]],
     "run": [["normrun", "140", "80"], ["treadrun", "270", "80"]],
     "laundry": [["hotwash", "10", "70"], ["coldwash", "140", "70"], ["machinedry", "10", "180"], ["airdry", "140", "180"]],
-    "nightkitchen": [["salad", "110", "160"], ["steak", "330", "160"], ["pizza", "230", "230"]]
+    "nightkitchen": [["pizza", "110", "160"], ["steak", "330", "160"], ["salad", "230", "230"]]
   };
   // total carbon tracker
   var total = 0;
