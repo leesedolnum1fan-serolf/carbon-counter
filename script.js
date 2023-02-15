@@ -112,7 +112,7 @@ async function button_detection(id) {
     button_check = 1;
   } else if (id === "run") {
     delete_buttons();
-    await img_transition(id);
+    await img_transition(id, 100);
     button_creation(scene["run"]);
   } else {
     button_check = 1;
@@ -120,6 +120,7 @@ async function button_detection(id) {
   if (button_check >= 1) {
     x += 1;
     delete_buttons();
+    button_check = 0;
     game(x);
   };
 
