@@ -101,7 +101,7 @@ async function button_detection(id) {
   if (id === "car" || id === "bus") {
     let multiplier = prompt("how long is your commute? (in miles)")
     total += multiplier * carbon[id]
-  } else if (id !== "run"){
+  } else if (id !== "run") {
     total += carbon[id]
   };
   if (id === "hotwash" || id === "coldwash" || id === "machinedry" || id === "airdry") {
@@ -138,8 +138,9 @@ async function button_detection(id) {
       g.innerHTML = `${total.toString()}g CO2`;
       g.style.top = "200px";
       g.style.left = "200px";
-      g.fontSize = "3em";
-      g.fontFamily = '"Brush Script MT", Cursive';
+      g.style.fontSize = "2em";
+      g.style.fontFamily = '"Brush Script MT", Cursive';
+      g.style.color = "magenta";
       container.appendChild(g);
     } else {
       game(x);
