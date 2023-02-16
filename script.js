@@ -26,7 +26,7 @@ const order = ["darkroom", "daykitchen", "transportation", "home", "laundry", "n
 //buttons that correspond with a scene
 const scene = {
   "darkroom": [["light", "6", "120"], ["window", "320", "51"]],
-  "daykitchen": [["eggs", "320", "155"], ["pancakes", "210", "220"], ["bacon", "140", "150"]],
+  "daykitchen": [["eggs", "320", "155"], ["pancakes", "210", "220"], ["bacon", "130", "140"]],
   "transportation": [["bike", "140", "40"], ["walk", "320", "40"], ["car", "270", "180"], ["bus", "80", "150"]],
   "home": [["television", "150", "160"], ["run", "310", "160"], ["garden", "230", "65"]],
   "run": [["normrun", "140", "80"], ["treadrun", "270", "80"]],
