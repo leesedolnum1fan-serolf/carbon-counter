@@ -37,7 +37,9 @@ const scene = {
 var total = 0;
 //game state
 var play = false;
+//so it knows when user clicks button
 var button_check = 0;
+//for cycling through scenes
 var x = 0;
 
 //delay for animations (this was stolen off internet)
@@ -45,6 +47,7 @@ function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 };
 
+//clears everything
 function reset() {
   play = false;
   background.style.opacity = 1;
@@ -53,6 +56,7 @@ function reset() {
   total = 0;
   x = 0;
 };
+//starts first scene
 function start() {
   if (play === false) {
     play = true;
@@ -60,6 +64,7 @@ function start() {
   };
 };
 
+//fade animition through scenes
 async function img_transition(new_img, ms) {
   const background = document.getElementById("background");
   let i = 1;
@@ -72,9 +77,17 @@ async function img_transition(new_img, ms) {
   };
 };
 
-function button_creation(buttons) {
-  for (const button of buttons) {
-    const container = document.getElementById("container")
+//create button for given scene
+function element_creation(stage) {
+  const container = document.getElementById("container")
+  var g = document.createElement("img");
+  g.className = "game-elements";
+  g.src = "img/dialogue/"+stage+".png"
+  container.appendChild(g)
+  g.style.position = "absolute";
+  g.style.left = "22px";
+  g.style.top = "255px"
+  for (const button of scene[stage]) {
     var g = document.createElement("button");
     var item = button[0];
     g.id = item;
@@ -90,6 +103,7 @@ function button_creation(buttons) {
   };
 };
 
+//clears all game-elements
 function delete_buttons() {
   var elements = document.getElementsByClassName("game-elements")
   while (elements[0]) {
@@ -97,6 +111,7 @@ function delete_buttons() {
   }
 };
 
+//for when a button is clicked
 async function button_detection(id) {
   if (id === "car" || id === "bus") {
     let multiplier = prompt("how long is your commute? (in miles)")
@@ -120,7 +135,7 @@ async function button_detection(id) {
   } else if (id === "run") {
     delete_buttons();
     await img_transition(id, 100);
-    button_creation(scene["run"]);
+    element_creation("run");
   } else {
     button_check = 1;
   };
@@ -128,6 +143,7 @@ async function button_detection(id) {
     x += 1
     delete_buttons();
     button_check = 0;
+    //for end scene
     if (x > 5) {
       await img_transition("end", 100)
       var g = document.createElement("p")
@@ -147,7 +163,8 @@ async function button_detection(id) {
     };
   };
 };
+//create scene
 async function game(x) {
   await img_transition(order[x], 50);
-  await new Promise(resolve => { button_creation(scene[order[x]]); resolve; })
+  await new Promise(resolve => { element_creation(order[x]); resolve; })
 };
